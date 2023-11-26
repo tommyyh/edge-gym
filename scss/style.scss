@@ -1,0 +1,1458 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+// Variables
+$accent: #D0E18C;
+$accentText: #B6D04C;
+$primary: #fff;
+$second: #000;
+$menuBg: #454545; // Menu icon
+$menu: #0a0a0a; // Menu whole
+$title: #1B1B1B;
+$whiteText: #fff;
+$text: #575757;
+$pricingTitle: #262626;
+$footerBg: #111111;
+$footerBorder: #313131;
+$footerLink: #888888;
+$reasonTitle: #373D50;
+
+$padding: 1.1rem;
+$padding2: 2.4rem;
+$width: 1268px;
+$height: 646px;
+
+// Auto adjust tablet view
+@media (min-width: 768px) and (max-width: 1024px) {
+  html {
+    font-size: 25px;
+  }
+}
+
+
+
+
+
+
+
+
+// Styles
+body {
+  font-family: 'Satoshi', sans-serif;
+}
+
+h2, h3 {
+  letter-spacing: -0.5px;
+}
+
+// Navigation
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 4.8rem;
+  padding: 0 1.25rem;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+
+  & img {
+    width: 2.25rem;
+  }
+
+  & h2 {
+    margin: 0 0 0 0.4rem;
+
+    font-size: 1.31rem;
+    font-weight: 500;
+    color: $accentText;
+  }
+}
+
+.menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  position: fixed;
+  right: 1.25rem;
+  width: 2.3rem;
+  height: 2.3rem;
+  z-index: 600;
+  
+  border-radius: 50%;
+  background: $primary;
+  box-shadow: 2px 2px 15px rgb(0, 0, 0, 0.17);
+}
+
+.line {
+  width: 1rem;
+  height: 2px;
+  position: relative;
+  
+  background: $menuBg;
+  border-radius: 3rem;
+
+  &::before, &::after {
+    content: '';
+    width: 1rem;
+    height: 2px;
+    right: 0;
+    position: absolute;
+    
+    background: $menuBg;
+    border-radius: 3rem;
+    transition: 300ms ease;
+  }
+
+  &::before {
+    top: -5px;
+  }
+
+  &::after {
+    bottom: -5px;
+  }
+}
+
+// Menu
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  padding: 0 0 6.4rem 2.9rem;
+  top: 0;
+  right: -100%;
+  z-index: 500;
+
+  background: $menu;
+  transition: 350ms ease;
+
+  & ul {
+    margin: 5.5rem 0 0 0;
+
+    & li {
+      margin: 0.9rem 0 0 0;
+
+      font-size: 1.7rem;
+      font-weight: 600;
+      list-style-type: none;
+    }
+
+    & a {
+      color: $primary;
+      text-decoration: none;
+    }
+  }
+}
+
+.nav-cta {
+  width: fit-content;
+  padding: 0.58rem 1.75rem;
+
+  font-size: 1.3rem;
+  font-weight: 600;
+  list-style-type: none;
+  color: $second;
+  text-decoration: none;
+  background: $primary;
+  border-radius: 4rem;
+}
+
+// Open state
+.menu-open {
+  right: 0;
+}
+
+
+
+
+
+// Landing <--------> Landing
+.landing {
+  padding: 8.7rem 1.25rem 0 1.25rem;
+
+  & h1 {
+    font-size: 3.15rem;
+    font-weight: 1000;
+    color: $title;
+    letter-spacing: -0.13rem;
+    line-height: 96.5%;
+    white-space: nowrap;
+
+    & span {
+      display: block;
+      position: relative;
+
+      &::before, &::after {
+        content: '';
+        width: 2rem;
+        height: 4px;
+        position: absolute;
+  
+        border-radius: 4rem;
+        background: $accentText;
+        opacity: 55%;
+      }
+  
+      &::before {
+        bottom: 0.35rem;
+        right: 5.6rem;
+      }
+  
+      &::after {
+        width: 1.31rem;
+        bottom: 0.85rem;
+        right: 6.29rem;
+      }
+    }
+  }
+}
+
+// Landing locations
+.landing-locations {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  padding: 0 1.8rem 1.5rem 1.8rem;
+  margin: 0.86rem 0 0 0;
+  width: 100%;
+  height: 14.69rem;
+  position: relative;
+
+  & h3 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: $whiteText;
+    line-height: 116.5%;
+  }
+
+  & img {
+    width: 3.13rem;
+    height: 3.13rem;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    border-radius: 0.81rem;
+    background-size: cover;
+    background-position: center center;
+    background-image: url('../media/images/landingLocations.jpg');
+    filter: brightness(0.62);
+  }
+}
+
+// Landing trainer
+.landing-trainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 1.8rem 0 1.8rem;
+  margin: 0.46rem 0 0 0;
+  width: 100%;
+  height: 4.81rem;
+  position: relative;
+
+  & h3 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: $whiteText;
+    line-height: 116.5%;
+  }
+
+  & img {
+    width: 3.13rem;
+    height: 3.13rem;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    border-radius: 0.81rem;
+    background-size: cover;
+    background-position: center center;
+    background-image: url('../media/images/landingTrainer.jpg');
+    filter: brightness(0.5);
+  }
+}
+
+
+
+
+
+// What We DO <--------> What We DO
+.wwd {
+  padding: 8rem 1.25rem 0 1.25rem;
+
+  & h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 118%;
+  }
+
+  & p {
+    margin: 1.05rem 0 0 0;
+
+    font-size: 1.06rem;
+    font-weight: 400;
+    color: $text;
+  }
+}
+
+
+
+
+
+// Programs <--------> Programs
+.programs {
+  padding: 8.8rem 1.25rem 0 1.25rem;
+
+  & h2 {
+    margin: 0 0 1.2rem 0;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 118%;
+  }
+}
+
+.program {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 1.6rem 0 1.6rem;
+  margin: 0.45rem 0 0 0;
+  width: 100%;
+  height: 6.5rem;
+  position: relative;
+
+  & h3 {
+    margin: 0 4rem 0 0;
+
+    font-size: 1.265rem;
+    font-weight: 700;
+    color: $whiteText;
+    line-height: 116.5%;
+  }
+
+  & img {
+    width: 3.13rem;
+    height: 3.13rem;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    border-radius: 1rem;
+    background-size: cover;
+    background-position: center center;
+    background-image: url('../media/images/programsWeights.jpg');
+    filter: brightness(0.38);
+  }
+
+  &:nth-child(2)::before {
+    background-image: url('../media/images/programsCardio.jpg');
+  }
+
+  &:last-child::before {
+    background-image: url('../media/images/programsCore.jpg');
+  }
+}
+
+
+
+
+
+// Why Us <--------> Why Us
+.whyus {
+  padding: 8.7rem 1.25rem 0 1.25rem;
+
+  & h2 {
+    margin: 0 4rem 0 0;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 118%;
+  }
+}
+
+.reasons {
+  width: 100%;
+  padding: 2.63rem 0 2.63rem 1.69rem;
+  margin: 1.03rem 0 0 0;
+
+  background: #F9F9F9;
+  box-shadow: 0px 4px 62px 0px rgba(0, 0, 0, 0.19);
+  border-radius: 1.75rem;
+}
+
+// Reason
+.reason {
+  display: flex;
+  
+  margin: 2.5rem 0 0 0;
+
+  &:first-child {
+    margin: 0;
+  }
+
+  &:nth-child(2) {
+    & .illustration {
+      background: #E4F5BE;
+    }
+
+    & h3 {
+      color: $accentText;
+    }
+  }
+  
+  &:last-child {
+    & .illustration {
+      background: #F5DBDB;
+    }
+
+    & h3 {
+      color: #BD9091;
+    }
+  }
+}
+
+.illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 4.31rem;
+  height: 4.31rem;
+
+  border-radius: 50%;
+  background: #FABDD2;
+}
+
+.reason-content {
+  padding: 0 0 0 0.88rem;
+
+  & h3 {
+    font-size: 1.22rem;
+    color: #A05C78;
+  }
+
+  & p {
+    margin: 0.2rem 2rem 0 0;
+
+    font-size: 0.95rem;
+    color: #5B6276;
+  }
+}
+
+
+
+
+
+// Pricing <--------> Pricing
+.pricing {
+  padding: 8.5rem 1.25rem 0 1.25rem;
+}
+
+.option {
+  display: flex;
+  justify-content: space-between;
+
+  border-bottom: 2px $pricingTitle solid;
+  padding: 0.75rem 0;
+
+  &:first-child h3 {
+    margin: 0 4rem 0 0;
+
+    &::before {
+      content: '$15.00';
+      position: absolute;
+      right: 1.2rem;
+      margin: 0.5rem 0 0 0;
+
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: $accentText;
+      letter-spacing: -0.63px;
+    }
+  }
+
+  &:nth-child(2) h3::before {
+    content: '$40.00';
+    position: absolute;
+    right: 2.25rem;
+    margin: 0.5rem 0 0 0;
+
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: $accentText;
+    letter-spacing: -0.63px;
+  }
+
+  &:last-child h3::before {
+    content: '$600.00';
+    position: absolute;
+    right: 4.6rem;
+    margin: 0.5rem 0 0 0;
+
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: $accentText;
+    letter-spacing: -0.63px;
+  }
+  
+  & h3 {
+    position: relative;
+
+    font-size: 2.44rem;
+    color: $pricingTitle;
+    font-weight: 1000;
+    line-height: 96.5%;
+    letter-spacing: -1.755px;
+  }
+
+  & img {
+    width: 4.94rem;
+    height: 4.94rem;
+    filter: drop-shadow(0px 4px 83px rgba(0, 0, 0, 0.4));
+  }
+}
+
+
+
+
+
+// Discount <-----> Discount
+#discount1::before {
+  background-image: url('../media/images/discountISIC.jpg');
+}
+
+#discount2::before {
+  background-image: url('../media/images/discountSeason.jpg');
+}
+
+
+
+
+
+// Footer <-----> Footer
+.footer {
+  width: 100%;
+  padding: 3.68rem 1.08rem;
+  margin: 8.8rem 0 0 0;
+
+  background: $footerBg;
+
+  // Links
+  & ul {
+    margin: 3rem 0 0 0;
+  }
+
+  & li {
+    margin: 0.42rem 0 0 0;
+
+    list-style: none;
+    font-size: 1.13rem;
+  }
+
+  & li, a {
+    color: $footerLink;
+    text-decoration: none;
+  }
+
+  & #footer-highlighted {
+    font-size: 1.25rem;
+    color: $primary;
+    font-weight: 500;
+  }
+}
+
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  width: 100%;
+  margin: 0 0 3.75rem 0;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 67%;
+    height: 1.5px;
+    left: -1.08rem;
+    bottom: -1.2rem;
+
+    background: $footerBorder;
+  }
+
+  & img {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  & h2 {
+    color: $primary;
+    font-size: 2rem;
+    font-weight: 1000;
+    line-height: 96.8%;
+    letter-spacing: -1.44px;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    & span {
+      display: block;
+    }
+  }
+}
+
+// Copyright
+.footer-copyright {
+  margin: 10rem 0 0 0;
+
+  font-size: 1.125rem;
+  color: $footerLink;
+  font-weight: 400;
+
+  & span {
+    color: $primary;
+  }
+}
+
+// Nulling
+.nav-links {
+  display: none;
+}
+
+.nav-links-cta {
+  display: none;
+}
+
+.landing-trainer-title2 {
+  display: none;
+}
+
+
+
+
+
+
+// Desktop --------------------------
+@media all and (min-width: 1025px) {
+  @mixin center {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  
+    width: 100%;
+  }
+
+  h2, h3 {
+    letter-spacing: -0.5px;
+  }
+  
+  // Navigation
+  .nav-cont {
+    @include center;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    width: $width;
+    height: 5.3rem;
+    padding: 0 $padding2;
+  }
+  
+  .nav-left {
+    display: flex;
+    align-items: center;
+  
+    & img {
+      width: 2.25rem;
+    }
+  
+    & h2 {
+      margin: 0 0 0 0.4rem;
+  
+      font-size: 1.31rem;
+      font-weight: 500;
+      color: $accentText;
+    }
+  }
+
+  // Links
+  .nav-links {
+    display: initial;
+
+    & li {
+      display: inline;
+      
+      padding: 0 0.79rem;
+
+      list-style-type: none;
+      font-weight: 500;
+      color: $pricingTitle;
+
+      &:hover > a {
+        color: #8b8bad;
+      }
+    }
+
+    & a {
+      color: $pricingTitle;
+      text-decoration: none;
+      transition: 220ms ease;
+    }
+  }
+  
+  .nav-links-cta {
+    display: initial;
+    padding: 0.47rem 1.3rem;
+    
+    border-radius: 4rem;
+    background: $accentText;
+    color: $whiteText;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.97rem;
+  }  
+  
+  .menu-icon {
+    display: none;
+  }
+  
+  .line {
+    width: 1rem;
+    height: 2px;
+    position: relative;
+    
+    background: $menuBg;
+    border-radius: 3rem;
+  
+    &::before, &::after {
+      content: '';
+      width: 1rem;
+      height: 2px;
+      right: 0;
+      position: absolute;
+      
+      background: $menuBg;
+      border-radius: 3rem;
+      transition: 300ms ease;
+    }
+  
+    &::before {
+      top: -5px;
+    }
+  
+    &::after {
+      bottom: -5px;
+    }
+  }
+  
+  // Menu
+  .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    padding: 0 0 6.4rem 2.9rem;
+    top: 0;
+    right: -100%;
+    z-index: 500;
+  
+    background: $menu;
+    transition: 350ms ease;
+  
+    & ul {
+      margin: 5.5rem 0 0 0;
+  
+      & li {
+        margin: 0.9rem 0 0 0;
+  
+        font-size: 1.7rem;
+        font-weight: 600;
+        list-style-type: none;
+      }
+  
+      & a {
+        color: $primary;
+        text-decoration: none;
+      }
+    }
+  }
+  
+  .nav-cta {
+    width: fit-content;
+    padding: 0.58rem 1.75rem;
+  
+    font-size: 1.3rem;
+    font-weight: 600;
+    list-style-type: none;
+    color: $second;
+    text-decoration: none;
+    background: $primary;
+    border-radius: 4rem;
+  }
+  
+  // Open state
+  .menu-open {
+    right: 0;
+  }
+  
+  
+  
+  
+  
+  // Landing <--------> Landing
+  .landing-cont {
+    @include center;
+  }
+
+  .landing {
+    width: $width;
+    padding: 7.2rem $padding2 0 $padding2;
+  
+    & h1 {
+      margin: 0 0 1.3rem 14rem;
+      position: relative;
+      width: fit-content;
+
+      font-size: 6.5rem;
+      font-weight: 1000;
+      color: $title;
+      letter-spacing: -0.27rem;
+      line-height: 93%;
+      white-space: nowrap;
+  
+      & span {
+        display: block;
+        position: relative;
+  
+        &::before, &::after {
+          content: '';
+          width: 4.7rem;
+          height: 0.67rem;
+          position: absolute;
+    
+          border-radius: 4rem;
+          background: $accentText;
+          opacity: 40%;
+        }
+    
+        &::before {
+          bottom: 0.52rem;
+          right: 9rem;
+        }
+    
+        &::after {
+          width: 2.4rem;
+          bottom: 1.55rem;
+          right: 4.7 - 2.31 + 9rem;
+        }
+      }
+    }
+  }
+
+  .landing-illustrations {
+    display: grid;
+    grid-template-columns: 59% 39.5%;
+    justify-content: space-between;
+  }
+  
+  // Landing locations
+  .landing-locations {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  
+    padding: 0 2.2rem 1.9rem 2.2rem;
+    margin: 0;
+    width: 100%;
+    height: 20.5rem;
+    position: relative;
+  
+    & h3 {
+      margin: 0 50% 0 0;
+
+      font-size: 1.71rem;
+      font-weight: 900;
+      color: $whiteText;
+      line-height: 116.5%;
+    }
+  
+    & img {
+      width: 3.8rem;
+      height: 3.8rem;
+    }
+  
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+  
+      border-radius: 0.81rem;
+      background-size: cover;
+      background-position: center center;
+      background-image: url('../media/images/landingLocations.jpg');
+      filter: brightness(0.65);
+    }
+  }
+  
+  // Landing trainer
+  .landing-trainer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  
+    padding: 0 2.2rem 1.9rem 2.2rem;
+    margin: 0;
+    width: 100%;
+    height: 20.5rem;
+    position: relative;
+  
+    & h3 {
+      margin: 0 28% 0 0;
+
+      font-size: 1.71rem;
+      font-weight: 900;
+      color: $whiteText;
+      line-height: 116.5%;
+    }
+  
+    & img {
+      width: 3.8rem;
+      height: 3.8rem;
+    }
+  
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+  
+      border-radius: 0.81rem;
+      background-size: cover;
+      background-position: center center;
+      background-image: url('../media/images/landingTrainer.jpg');
+      filter: brightness(0.5);
+    }
+  }
+
+  .landing-trainer-title1 {
+    display: none;
+  }
+
+  .landing-trainer-title2 {
+    display: initial;
+  }
+
+  .option-day-pass2 {
+    display: none;
+  }
+  
+  
+  
+  
+  
+  // What We DO <--------> What We DO
+  .wwd-cont {
+    @include center;
+  }
+
+  .wwd {
+    display: grid;
+    grid-template-columns: 37.5% 60%;
+    justify-content: space-between;
+
+    width: $width;
+    padding: 8rem $padding2 0 $padding2 + 7rem;
+  
+    & h2 {
+      margin: 0 0 0 0;
+
+      font-size: 2.15rem;
+      font-weight: 700;
+      line-height: 118%;
+    }
+  
+    & p {
+      margin: 0 13rem 0 0;
+  
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: $text;
+    }
+  }
+  
+  
+  
+  
+  
+  // Programs <--------> Programs
+  .programs-cont {
+    @include center;
+  }
+
+  .programs {
+    width: $width;
+    padding: 8.8rem $padding2 0 $padding2;
+  
+    & h2 {
+      margin: 0 0 1.2rem 0;
+  
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 118%;
+    }
+  }
+  
+  .program {
+    display: grid;
+    grid-template-columns: 23% 0%;
+    align-items: flex-end;
+    justify-content: initial;
+  
+    padding: 0 2.2rem 2rem 2.31rem;
+    margin: 0.9rem 0 0 0;
+    width: 100%;
+    height: 12.9rem;
+    position: relative;
+  
+    & h3 {
+      margin: 0 0 0 0;
+  
+      font-size: 1.82rem;
+      font-weight: 700;
+      color: $whiteText;
+      line-height: 116.5%;
+    }
+  
+    & img {
+      margin: 0 0 -0.3rem 0.2rem;
+
+      width: 4.3rem;
+      height: 4.3rem;
+    }
+  
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+  
+      border-radius: 2rem;
+      background-size: cover;
+      background-position: center center;
+      background-image: url('../media/images/programsCardio.jpg');
+      filter: brightness(0.39);
+    }
+  
+    &:nth-child(2)::before {
+      background-image: url('../media/images/programsWeights.jpg');
+    }
+  
+    &:last-child::before {
+      background-image: url('../media/images/programsCore.jpg');
+    }
+  }
+
+  .program-cta1 {
+    margin: 0 0 0 -1.5rem;
+  }
+
+  .program-cta2 {
+    margin: 0 0 0 1.43rem;
+  }
+
+  
+  
+  
+  
+  
+  // Why Us <--------> Why Us
+  .whyus-cont {
+    @include center;
+  }
+
+  .whyus {
+    display: grid;
+    grid-template-columns: 20% 77.5%;
+    justify-content: space-between;
+    width: $width;
+    padding: 13rem $padding2 0 $padding2;
+  
+    & h2 {
+      margin: 0 0 0 0;
+  
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 118%;
+    }
+  }
+  
+  .reasons {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    justify-content: space-between;
+    align-items: initial;
+    width: 100%;
+    padding: 2.4rem 2.9rem;
+    margin: 0rem 0 0 0;
+  
+    background: #F9F9F9;
+    box-shadow: 0px 4px 62px 0px rgba(0, 0, 0, 0.19);
+    border-radius: 1.75rem;
+  }
+  
+  // Reason
+  .reason {
+    display: flex;
+    flex-direction: column;
+    
+    margin: 0rem 0 0 0;
+  
+    &:first-child {
+      margin: 0;
+    }
+  
+    &:nth-child(2) {
+      & .illustration {
+        background: #E4F5BE;
+      }
+  
+      & h3 {
+        color: $reasonTitle;
+      }
+    }
+    
+    &:last-child {
+      & .illustration {
+        background: #F5DBDB;
+      }
+  
+      & h3 {
+        color: $reasonTitle;
+      }
+    }
+  }
+  
+  .illustration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    min-width: 3.65rem;
+    max-width: 3.65rem;
+    height: 3.65rem;
+  
+    border-radius: 50%;
+    background: #FABDD2;
+
+    & img {
+      transform: scale(0.8);
+    }
+  }
+  
+  .reason-content {
+    padding: 0 0 0 0rem;
+  
+    & h3 {
+      margin: 0.566rem 0 0 0;
+
+      font-size: 1.34rem;
+      color: $reasonTitle;
+    }
+  
+    & p {
+      margin: 0.35rem 2rem 0 0;
+  
+      font-size: 0.985rem;
+      color: #5B6276;
+    }
+  }
+  
+  
+  
+  
+  
+  // Pricing <--------> Pricing
+  .pricing-cont {
+    @include center;
+  }
+
+  .pricing {
+    width: $width;
+    padding: 12.3rem $padding2 0 $padding2;
+  }
+  
+  .option {
+    display: flex;
+    justify-content: space-between;
+  
+    border-bottom: 3px $pricingTitle solid;
+    padding: 1.4rem 0;
+  
+    &:first-child h3 {
+      margin: 0 4rem 0 -5px;
+  
+      &::before {
+        content: '$15.00';
+        position: absolute;
+        right: -4.35rem;
+        margin: 1.52rem 0 0 0;
+  
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $accentText;
+        letter-spacing: -0.63px;
+      }
+    }
+  
+    &:nth-child(2) h3::before {
+      content: '$40.00';
+      position: absolute;
+      right: -4.35rem;
+      margin: 1.58rem 0 0 0;
+
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: $accentText;
+      letter-spacing: -0.63px;
+    }
+  
+    &:last-child h3::before {
+      content: '$600.00';
+      position: absolute;
+      right: -5.25rem;
+      margin: 1.7rem 0 0 0;
+
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: $accentText;
+      letter-spacing: -0.63px;
+    }
+    
+    & h3 {
+      position: relative;
+  
+      font-size: 5.25rem;
+      color: $pricingTitle;
+      font-weight: 1000;
+      line-height: 96.5%;
+      letter-spacing: -1.755px;
+    }
+  
+    & img {
+      width: 5.15rem;
+      height: 5.15rem;
+      filter: drop-shadow(0px 4px 83px rgba(0, 0, 0, 0.6));
+    }
+  }
+
+  .option-day-pass1 {
+    display: none;
+  }
+  
+  .option-day-pass2 {
+    display: initial;
+  }
+  
+  
+  
+  
+  // Discount <-----> Discount
+  .discounts-cont {
+    @include center
+  }
+
+  .discounts {
+    width: $width;
+    margin: 4rem 0 0 0;
+  }
+  
+  #discount1::before {
+    background-image: url('../media/images/discountISIC.jpg');
+  }
+  
+  #discount2::before {
+    background-image: url('../media/images/discountSeason.jpg');
+  }
+
+
+
+
+  // Commitment
+  .commitment-cont {
+    @include center
+  }
+
+  .commitment {
+    grid-template-columns: 35% 60%;
+
+    width: $width;
+    margin: 4rem 0;
+  }
+  
+  
+  
+  
+  
+  // Footer <-----> Footer
+  .footer-cont {
+    @include center;
+    margin: 8.8rem 0 0 0;
+  
+    background: $footerBg;
+  }
+
+  .footer-d {
+    display: flex;
+  }
+
+  .footer {
+    width: $width;
+    padding: 9.2rem $padding2 3.68rem $padding2;
+
+    margin: initial;
+  
+    // Links
+    & ul {
+      margin: 0.4rem 0 0 10rem;
+
+      &:first-child {
+        margin: 0.4rem 0 0 0;
+      }
+    }
+  
+    & li {
+      margin: 0.8rem 0 0 0;
+  
+      list-style: none;
+      font-size: 1.13rem;
+    }
+  
+    & li, a {
+      color: $footerLink;
+      text-decoration: none;
+    }
+  
+    & #footer-highlighted {
+      font-size: 1.25rem;
+      color: $primary;
+      font-weight: 500;
+    }
+  }
+  
+  .footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: initial;
+    
+    width: 100%;
+    margin: 0 0 3.75rem 0;
+    position: initial;
+  
+    &::before {
+      content: '';
+      position: absolute;
+      width: 77%;
+      height: 1.5px;
+      left: 0;
+      margin: 15.7rem 0 0 0;
+      bottom: initial;
+  
+      background: $footerBorder;
+    }
+  
+    & img {
+      margin: 0 0 0 3.8rem;
+
+      width: 10.5rem;
+      height: 10.5rem;
+    }
+  
+    & h2 {
+      color: $primary;
+      font-size: 5.8rem;
+      font-weight: 1000;
+      line-height: 96.8%;
+      letter-spacing: -2.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+  
+      & span {
+        display: block;
+      }
+    }
+  }
+
+  .footer-links {
+    display: flex;
+  }
+  
+  // Copyright
+  .footer-copyright {
+    margin: 10rem 0 0 0;
+  
+    font-size: 1.125rem;
+    color: $footerLink;
+    font-weight: 400;
+  
+    & span {
+      color: $primary;
+    }
+  }
+
+
+
+}
